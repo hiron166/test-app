@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { posts } from "./data/posts";
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          test
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <container>
+        <ul>
+          {posts.map((post) => (
+            <li key={post.id} className="flex flex-col text-[#333]">
+              <div className="mb-8 border p-4 border-gray-300">
+                <div className="flex justify-between">
+                  <div className="text-xs text-[#888]">{new Date(post.createdAt).toLocaleDateString()}</div>
+                  <div className="border rounded text-[#06c] border-[#06c]">
+                    {post.categories}
+                  </div>
+                </div>
+                <p>{`APIで取得した${post.title}`}</p>
+                <div>{post.content}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </container>
+    </>
   );
-}
-
-export default App;
+};
