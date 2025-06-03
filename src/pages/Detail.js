@@ -38,7 +38,7 @@ export const Detail = () => {
                   ))}
                 </div>
               </div>
-              <p className="text-2xl mt-2 mb-4">{`APIで取得した${post.title}`}</p>
+              <h1 className="text-2xl mt-2 mb-4">{`APIで取得した${post.title}`}</h1>
               <div
                 dangerouslySetInnerHTML={{ __html: post.content }}
                 className=""
