@@ -1,8 +1,22 @@
+import { useEffect, useState } from "react";
 import "../App.css";
 import { posts } from "../data/posts";
 import { Link } from "react-router-dom";
 
 export const Top = () => {
+  const [post, setPost] = useState([]);
+
+  useEffect(() => {
+    const fetcher = async () => {
+      const res = await fetch(
+        "https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts"
+      );
+      const data = await res.json();
+      setPost(data);
+    };
+
+    fetcher();
+  }, []);
   return (
     <>
       <div>

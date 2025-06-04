@@ -1,9 +1,20 @@
-import { posts } from "../data/posts";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export const Detail = () => {
   const { id } = useParams();
-  const post = posts.find((post) => post.id === Number(id));
+  const [post, setPost] = useState(null);
+
+  useEffect(() => {
+    const fetcher = async () => {
+      const res = await fetch(
+        `https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`
+      );
+      const data = await res.json();
+      setPost(data.post);
+    };
+    fetcher();
+  }, [id]);
 
   if (!post) {
     return (
