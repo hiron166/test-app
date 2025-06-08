@@ -24,12 +24,9 @@ export const Detail = () => {
   }, [id]);
 
   if (isLoading) {
-    return (
-      <>
-        <p className="my-8 mx-auto max-w-3xl px-4">読み込み中...</p>
-      </>
-    );
+    return <p className="my-8 mx-auto max-w-3xl px-4">読み込み中...</p>;
   }
+
   if (!post) {
     return (
       <div className="my-8 mx-auto max-w-3xl px-4">
