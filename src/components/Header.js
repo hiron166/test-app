@@ -6,7 +6,7 @@ export const Header = () => {
     <>
       <header className="flex justify-between p-6 bg-[#333] text-[#fff] font-bold">
         <Link to="/">Blog</Link>
-        <Link to="/">お問い合わせ</Link>
+        <Link to="/contact">お問い合わせ</Link>
       </header>
     </>
   );
